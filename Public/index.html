@@ -1,0 +1,219 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+    <body>
+        <div class="top-bar" id="header_anchor">
+            <div class="top-bar-left">
+                <ul class="dropdown menu" id="left_menu_anchor">
+                    <!--<li><a type="button" class="secondary hollow button" href="index.html">Home</a></li>-->
+                    <li><a class="menu-text" id="headline"><b>UVic Seng299 Group 15</b></a></li>
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <ul class="menu" style="display: inline-block">
+                    <li id="user_info_anchor"></li>
+                    <li><a type="button" class="button" href="/logout">Logout</a></li>
+                </ul>
+                <ul class="menu" id="right_menu_anchor" style="display: inline-block">
+                </ul>
+            </div>
+        </div>
+        <div class="row" align="center" id="body_anchor">
+        </div>
+        <div id="snackbar_container">
+        </div>
+
+    <template id="snackbarTemplate">
+         <div class="snackbar">
+            <div class="snackbar_content">
+            </div>
+        </div>       
+    </template>
+
+    <template id="userHeaderInfoTemplate">
+        <img id="user_picture" class="user_picture" src="" />
+        <span id="user_name" class="user_name"></span>
+    </template>
+
+    <template id="joinGamePageMenu">
+        <li><button class="success button" id="renderCreateGameButton">Create New Game</button></li>
+        <li><button class="success button" id="renderPlayReplayButton">Play Replay</button></li>  
+    </template>
+
+    <template id="createGamePageMenu">
+        <li><button class="success button" id="renderJoinGameButton">Join Existing Game</button></li>
+        <li><button class="success button" id="renderPlayReplayButton">Play Replay</button></li>  
+    </template>
+
+    <template id="playReplayPageMenu">
+        <li><button class="success button" id="renderCreateGameButton">Create New Game</button></li>
+        <li><button class="success button" id="renderJoinGameButton">Join Existing Game</button></li> 
+    </template>
+
+    <template id="playGamePageMenu">
+        <li><button class="alert button" id="leaveGameButton">Leave Game</button></li>
+    </template>
+
+    <template id="leaveReplayPageMenu">
+        <li><button class="alert button" id="leaveReplayButton">Exit Replay</button></li>
+    </template>
+
+    <template id="joinGameTemplate">
+        <div class="large-3 columns"><!-- ... --></div>
+        <div class="large-6 columns"><!-- ... -->
+            <h2 class="gogame">Enter ID of game to join</h2>
+            <input type="search" placeholder="Enter game ID" class="gogame" id="game_id_input">
+            <button class="large hollow button" id="joinGame">Join Game</button>
+        </div>
+        <div class="large-3 columns"><!-- ... --></div>
+        <div class="large-12 columns">
+            <h5 align="center" id="join_game_fail"></h5>
+        </div>
+    </template>
+
+    <template id="replayRequestTemplate">
+        <div class="large-3 columns"><!-- ... --></div>
+        <div class="large-6 columns"><!-- ... -->
+            <h2 class="gogame">Enter replay ID</h2>
+            <input type="search" placeholder="Enter replay ID" class="gogame" id="replay_id_input">
+            <button class="large hollow button" id="requestReplay">Play Replay</button>
+        </div>
+        <div class="large-3 columns"><!-- ... --></div>
+        <div class="large-12 columns">
+            <h5 align="center" id="replay_game_fail"></h5>
+        </div>
+    </template>
+
+    <template id="createGameTemplate">
+        <div class="large-3 columns"><!-- ... --></div>
+        <h2 class="gogame">Select game options</h2>
+        <div class="large-3 columns"><!-- ... --></div>
+        <div align="center">
+            <p class="green">Select color</p>
+            <form action="" id="token_form">
+                <div class="row">
+                    <div class="large-6 columns large-offset-3" align="center">
+                        <div class="create_radio">
+                            <input type="radio" name="form_token" value="Black" checked="true"> Black
+                        </div>
+                        <div class="create_radio">
+                            <input type="radio" name= "form_token" value="White"> White
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div align="center">
+            <p class="green">Select Mode</p>
+            <form action=" " id="mode_form">
+                <div class="row">
+                    <div class="large-6 columns large-offset-3" align="center">
+                        <div class="create_radio">
+                            <input type="radio" name="form_mode" value="AI" checked="true"> AI
+                        </div>
+                        <div class="create_radio">
+                            <input type="radio" name="form_mode" value="Hotseat"> Hotseat
+                        </div>
+                        <div class="create_radio">
+                            <input type="radio" name="form_mode" value="Network"> Network
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="row" id="wrapper" align="center">
+            <div class="large-3 columns"><!-- ... --></div>
+                <p class="green">Select Board Size</p>
+            <div class="large-3 columns"><!-- ... --></div>
+        </div>
+        <div class="row" id="wrapper" align="center">
+            <div class="large-3 columns"><!-- ... --></div>
+            <div class="large-6 columns"><!-- ... --></div>
+                <select id="form_board"> 
+                    <option value="9">9x9</option>
+                    <option value="13">13x13</option>
+                    <option value="19">19x19</option>
+                </select>
+            <div class="large-3 columns"><!-- ... --></div>
+        </div>
+        <div class="row" id="wrapper" align="center">
+            <div class="large-3 columns"><!-- ... --></div>
+            <button class="large hollow button" id="createGameButton">Create New Game</button>
+            <div class="large-3 columns"><!-- ... --></div>
+        </div>
+    </template>
+
+    <template id="gamePlayTemplate">
+        <h1 align="center" id="game_title"></h1>
+        <h5 align="center" id="game_id"></h5>
+        <h5 align="center" id="game_turn"></h5>
+        <h5 align="center" id="game_over"></h5>
+        <div id="game_container">
+            <svg id="game_board">
+              <defs>
+                <radialGradient id="whiteGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#dddddd;stop-opacity:1" />
+                </radialGradient>
+                <radialGradient id="blackGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                  <stop offset="0%" style="stop-color:#808080;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                </radialGradient>
+              </defs>
+              <g id="game_rect" />
+              <g id="game_tokens" />
+            </svg>
+        </div>
+        <div class="row" id="wrapper">
+            <div class="large-6 columns large-offset-3 button_container" align="center">
+                <button class="button" id="passMoveButton">Pass Move</button>
+            </div>
+        </div>
+    </template>
+
+    <template id="replayPlayTemplate">
+        <h1 align="center" id="game_title"></h1>
+        <h5 align="center" id="game_id"></h5>
+        <h5 align="center" id="game_turn"></h5>
+        <h5 align="center" id="game_over"></h5>
+        <div id="game_container">
+            <svg id="game_board">
+              <defs>
+                <radialGradient id="whiteGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#dddddd;stop-opacity:1" />
+                </radialGradient>
+                <radialGradient id="blackGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                  <stop offset="0%" style="stop-color:#808080;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                </radialGradient>
+              </defs>
+              <g id="game_rect" />
+              <g id="game_tokens" />
+            </svg>
+        </div>
+        <div class="row" id="wrapper">
+            <div class="large-6 columns large-offset-3 button_container" align="center">
+                <button class="button" id="replayPreviousButton">Previous Move</button>
+                <button class="button" id="replayNextButton">Next Move</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/what-input/what-input.js"></script>
+    <script src="bower_components/foundation-sites/dist/foundation.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="js/client.js"></script>
+  </body>
+</html>

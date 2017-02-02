@@ -1,0 +1,33 @@
+.dropdown.menu{
+    background-color: transparent !important;
+}
+
+.hollow.button{
+    color: #fff !important;
+    border-color: #fff !important;
+    margin: 15px 0 40px !important;
+    transition: all 0.25s ease !important; 
+    font-family: 'Avenir Next Medium', sans-serif !important;
+}
+.hollow.button:hover{
+    color: #fff !important;
+    border-color: #28154d !important;
+    background-color: #28154d !important;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.button{
+    color: #fff !important;
+    transition: all 0.25s ease !important; 
+    font-family: 'Avenir Next Medium', sans-serif !important;
+}
+.button:hover{
+    color: #fff !important;
+    border-color: #44466c !important;
+    background-color: #44466c !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.gogame {
+    margin: 55px 0 15px !important;
+    color:white;
+    font-family: 'Avenir Next Medium', sans-serif !important;
+}
